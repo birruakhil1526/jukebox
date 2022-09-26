@@ -51,13 +51,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return "SongModel{" +
-                "song_Id=" + song_Id +
-                ", song_Name='" + song_Name + '\'' +
-                ", artist_Name='" + artist_Name + '\'' +
-                ", album_Name='" + album_Name + '\'' +
-                ", genre='" + genre + '\'' +
-                ", song_Duration=" + song_Duration +
-                '}';
+        return String.format("%10s\t%30s\t%30s\t%20s\t%20s\t%20s", song_Id,song_Name,artist_Name,album_Name,genre,song_Duration);
     }
 }
