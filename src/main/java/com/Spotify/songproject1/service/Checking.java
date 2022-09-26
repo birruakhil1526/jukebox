@@ -35,5 +35,54 @@ public class Checking {
             }
         }return result;
     }
+     public ArrayList<Song> getAllSongs() throws SQLException {
+        ArrayList<Song> result=songDAO.selectSongs();
+        return result;
+    }
+    public ArrayList<Song> getSongByAlbumName(String albumName, ArrayList<Song> songArrayList) {
+        ArrayList<Song> filterByAlbumList=null;
+        if(songArrayList.isEmpty()==false&&albumName!=null){
+            filterByAlbumList=new ArrayList<>();
+            for(Song song:songArrayList){
+                if(song.getAlbum_Name().equalsIgnoreCase(albumName)){
+                    filterByAlbumList.add(song);
+                }
+            }
+        }return filterByAlbumList;
+
+    }
+    public ArrayList<Song> getSongByArtistName(String artistName,ArrayList<Song> songArrayList)  {
+        ArrayList<Song> filterByArtistName=null;
+        if(songArrayList.isEmpty()==false&&artistName!=null){
+            filterByArtistName=new ArrayList<>();
+            for(Song song:songArrayList){
+                if(song.getArtist_Name().equalsIgnoreCase(artistName)){
+                    filterByArtistName.add(song);
+                }
+            }
+        }return filterByArtistName;
+    }
+    public ArrayList<Song> getSongByGenre(String genre,ArrayList<Song> songArrayList){
+        ArrayList<Song> filterByGenre=null;
+        if(songArrayList.isEmpty()==false&&genre!=null){
+            filterByGenre=new ArrayList<>();
+            for(Song song:songArrayList){
+                if(song.getGenre().equalsIgnoreCase(genre)){
+                    filterByGenre.add(song);
+                }
+            }
+        }return filterByGenre;
+    }
+    public ArrayList<Song> getSongBySongName(String songName,ArrayList<Song> songArrayList){
+        ArrayList<Song> filterByName=null;
+        if(songArrayList.isEmpty()==false&&songName!=null){
+            filterByName=new ArrayList<>();
+            for(Song song:songArrayList){
+                if(song.getSong_Name().equalsIgnoreCase(songName)){
+                    filterByName.add(song);
+                }
+            }
+        }return filterByName;
+    }
 
 }
