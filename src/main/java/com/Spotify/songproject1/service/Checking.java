@@ -23,10 +23,10 @@ public class Checking {
         System.out.format("%10s %30s    %30s    %20s    %15s    %25s" ,"SONG ID","SONG NAME","ARTIST NAME","ALBUM NAME","GENRE","SONG DURATION" );
         System.out.println();
         for(Song song:songList){
-           System.out.println(song);
+            System.out.println(song);
        }
     }
-    private boolean checkSong(String songName,ArrayList<Song> songArrayList) throws SQLException {
+    private boolean checkSong(String songName,ArrayList<Song> songArrayList) {
         boolean result =false;
         for(Song song:songArrayList){
             if(song.getSong_Name().equalsIgnoreCase(songName)){
