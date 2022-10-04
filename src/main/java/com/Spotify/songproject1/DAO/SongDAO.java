@@ -10,13 +10,12 @@ import java.util.ArrayList;
 public class SongDAO {
     public boolean insertSong(Song song) throws SQLException {
         PreparedStatement insertStatement=SongConnection.getConnection()
-                .prepareStatement("insert into songs values(?,?,?,?,?,?)");
-        insertStatement.setInt(1,song.getSong_Id());
-        insertStatement.setString(2, song.getSong_Name());
-        insertStatement.setString(3,song.getArtist_Name());
-        insertStatement.setString(4,song.getAlbum_Name());
-        insertStatement.setString(5,song.getGenre());
-        insertStatement.setFloat(6,song.getSong_Duration());
+                .prepareStatement("insert into songs(song_Name,artist_Name,album_Name,genre,song_Duration) values(?,?,?,?,?)");
+        insertStatement.setString(1, song.getSong_Name());
+        insertStatement.setString(2,song.getArtist_Name());
+        insertStatement.setString(3,song.getAlbum_Name());
+        insertStatement.setString(4,song.getGenre());
+        insertStatement.setFloat(5,song.getSong_Duration());
         int result=insertStatement.executeUpdate();
         return result>0?true:false;
     }
@@ -33,5 +32,4 @@ public class SongDAO {
             }
         }return songArrayList;
     }
-
 }
